@@ -1,16 +1,231 @@
+    <style>
+        /* ...existing code... */
+        .bg-art {
+            position: fixed;
+            z-index: 0;
+            pointer-events: none;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            overflow: hidden;
+        }
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(32px);
+            opacity: 0.18;
+        }
+        .bg-shape1 {
+            width: 420px; height: 420px;
+            background: var(--accent-blue);
+            top: -120px; left: -120px;
+        }
+        .bg-shape2 {
+            width: 300px; height: 300px;
+            background: var(--pale-blue);
+            bottom: -100px; right: -80px;
+        }
+        nav a {
+            /* ...existing code... */
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0; bottom: -4px;
+            width: 0%;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+            transition: width 0.3s cubic-bezier(.77,0,.18,1);
+        }
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+        section {
+            /* ...existing code... */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+        }
+        section.visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lou-Ann Coquard-Morel - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
-<body>
-    <h1>Lou-Ann</h1>
-    <p>Computer Science Student</p>
-
-    <h2>Projects</h2>
-    <ul>
-        <li>Project 1 </li>
-        <li>Project 2 </li>
-    </ul>
+    <body>
+    <div class="bg-art">
+        <div class="bg-shape bg-shape1"></div>
+        <div class="bg-shape bg-shape2"></div>
+        <div class="bg-shape bg-shape3"></div>
+        <div class="bg-shape bg-shape4"></div>
+        <div class="bg-shape bg-shape5"></div>
+    </div>
+    <header>
+            <script>
+                // ...existing code...
+                // Section fade-in on scroll
+                function revealSections() {
+                    document.querySelectorAll('section').forEach(section => {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top < window.innerHeight - 80) {
+                            section.classList.add('visible');
+                        }
+                    });
+                }
+                window.addEventListener('scroll', revealSections);
+                window.addEventListener('DOMContentLoaded', revealSections);
+                // Nav active link highlight
+                function setActiveNav() {
+                    const scrollPos = window.scrollY + 100;
+                    document.querySelectorAll('section').forEach(section => {
+                        const id = section.id;
+                        const navLink = document.querySelector(`nav a[href="#${id}"]`);
+                        if (navLink) {
+                            const offset = section.offsetTop;
+                            const height = section.offsetHeight;
+                            if (scrollPos >= offset && scrollPos < offset + height) {
+                                navLink.classList.add('active');
+                            } else {
+                                navLink.classList.remove('active');
+                            }
+                        }
+                    });
+                }
+                window.addEventListener('scroll', setActiveNav);
+                window.addEventListener('DOMContentLoaded', setActiveNav);
+            </script>
+        <div class="logo">Lou-Ann ✩</div>
+        <nav>
+            <a href="#whoami">Who am I?</a>
+            <a href="#projects">My Projects</a>
+            <a href="#languages">Languages</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#experience">Experience</a>
+            <a href="#passions">My Passions</a>
+            <a href="#contact">Contact Me</a>
+        </nav>
+    </header>
+    <main>
+        <section id="whoami" class="intro">
+            <div class="intro-layout">
+                <div class="intro-photo-wrap">
+                    <div class="photo-polaroid">
+                        <img src="assets/me.jpg" alt="Lou-Ann" class="photo-me">
+                        <div class="polaroid-caption">hello world ! ✩°˖🫐</div>
+                    </div>
+                    <div class="sticker-placeholder sticker-1">🫐✩°˖</div>
+                    <div class="sticker-placeholder sticker-2">𓇼🫧</div>
+                    <div class="sticker-placeholder sticker-3">🎐⋆｡˚</div>
+                </div>
+                <div class="intro-text">
+                    <div class="intro-hello">⋆｡˚ hello, i'm ˚｡⋆</div>
+                    <h1>Lou-Ann<br>Coquard-Morel</h1>
+                    <p>Computer Science Student, Artist &amp; Explorer</p>
+                    <div class="intro-bio">
+                        Welcome to my portfolio! I am passionate about technology, art, and travel. My journey is a blend of creativity and logic, always seeking new inspiration and challenges.
+                    </div>
+                    <a href="#projects" class="intro-cta">See my work ↓</a>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <div class="section-title">My Projects</div>
+            <div class="projects-list">
+                <div class="project-card">
+                    <h3>Project 1</h3>
+                    <p>A brief description of your first project. Highlight what makes it unique and your role.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Project 2</h3>
+                    <p>A brief description of your second project. Mention the technologies and your creative input.</p>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </section>
+        <section id="languages">
+            <div class="section-title">Languages</div>
+            <div style="max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: 1.15rem;">
+                <!-- Add your languages here -->
+                <p style="color: var(--text-light); font-style: italic;">Languages to be listed soon...</p>
+            </div>
+        </section>
+        <section id="achievements">
+            <div class="section-title">Achievements & Diplomas</div>
+            <ul style="list-style: none; padding: 0; max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: 1.15rem;">
+                <li style="margin-bottom: 1.2rem;">
+                    <strong>Baccalauréat Scientifique</strong> – Mention Très Bien<br>
+                    Lycée Example, 2024
+                </li>
+                <li style="margin-bottom: 1.2rem;">
+                    <strong>First Prize – Regional Art Competition</strong><br>
+                    2023
+                </li>
+                <li style="margin-bottom: 1.2rem;">
+                    <strong>Cambridge English Certificate</strong> – Level C1<br>
+                    2022
+                </li>
+                <!-- Add more achievements or diplomas as needed -->
+            </ul>
+        </section>
+        <section id="experience">
+            <div class="section-title">Work Experience</div>
+            <ul style="list-style: none; padding: 0; max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: 1.15rem;">
+                <li style="margin-bottom: 2rem;">
+                    <strong style="color:var(--text-dark);">Job Title – Company Name</strong><br>
+                    <span style="font-size:0.95rem;">Month Year – Month Year</span><br>
+                    Brief description of your role, responsibilities, and key achievements.
+                </li>
+                <li style="margin-bottom: 2rem;">
+                    <strong style="color:var(--text-dark);">Internship – Company Name</strong><br>
+                    <span style="font-size:0.95rem;">Month Year – Month Year</span><br>
+                    Brief description of what you worked on and what you learned.
+                </li>
+                <!-- Add more experiences as needed -->
+            </ul>
+        </section>
+        <section id="passions">
+            <div class="section-title">My Passions</div>
+            <div class="passions">
+                <div class="passion-item">
+                    <strong>Art &amp; Creativity</strong><br>
+                    I love expressing myself through painting, digital art, and design. Art inspires my approach to problem-solving.
+                </div>
+                <div class="passion-item">
+                    <strong>Travel &amp; Exploration</strong><br>
+                    Exploring new cultures and places broadens my perspective and fuels my creativity.
+                </div>
+                <div class="passion-item">
+                    <strong>Technology &amp; Coding</strong><br>
+                    Building things with code is my way of shaping the future. I enjoy learning new languages and frameworks.
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="section-title">Contact Me</div>
+            <form class="contact-form" id="contact-form" autocomplete="off">
+                <input type="text" name="from_name" placeholder="Your Name" required>
+                <input type="email" name="from_email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" id="send-btn">Send Message</button>
+            </form>
+            <div style="margin-top:2.5rem; text-align:center; color:var(--text-light); font-size:1.1rem;">
+                <div>Email: <a href="mailto:loucm2006@gmail.com" style="color:var(--accent-blue);text-decoration:none;">loucm2006@gmail.com</a></div>
+                <div style="margin-top:0.7rem;">
+                    LinkedIn: <a href="https://www.linkedin.com/in/lou-ann-c-aa5327320/" target="_blank" rel="noopener" style="color:var(--accent-blue);text-decoration:none;">lou-ann-c-aa5327320</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="index.js"></script>
 </body>
 </html>
