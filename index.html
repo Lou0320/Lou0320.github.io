@@ -128,7 +128,7 @@
                 window.addEventListener('scroll', setActiveNav);
                 window.addEventListener('DOMContentLoaded', setActiveNav);
             </script>
-        <a href="#whoami" id="logo-link" style="display:inline-flex; align-items:center;"><img id="logo-img" src="assets/logo.png" alt="Lou-Ann logo" style="height:90px; width:auto; display:block;"></a>
+        <a href="#whoami" id="logo-link" style="display:inline-flex; align-items:center;"><img id="logo-img" src="assets/logo.png" alt="Lou-Ann logo" style="height:clamp(50px, 12vw, 90px); width:auto; display:block;"></a>
         <nav>
             <a href="#whoami">Who am I?</a>
             <a href="#projects">My Projects</a>
@@ -197,10 +197,10 @@
                     <div class="project-tags"><span class="tag">OCaml</span></div>
                     <h3>Nonogram</h3>
                     <p>A playable implementation of the Nonogram logic puzzle, developed in OCaml as a university project. Focuses on constraint satisfaction and functional programming.</p>
-                    <div style="margin-top: 18px; display: flex; align-items: center; gap: 16px;">
+                    <div style="margin-top: 18px; display: flex; align-items: center; gap: clamp(0.8rem, 3vw, 1rem); flex-wrap: wrap;">
                         <a href="https://github.com/Lou0320/nonogram/" target="_blank" style="display: flex; align-items: center; text-decoration: none;">
-                            <img src="assets/github.png" alt="GitHub" style="width: 44px; height: 44px; margin-right: 12px; filter: drop-shadow(0 2px 8px #0002); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)';">
-                            <span style="font-size: 0.92rem; color: #444; font-family: inherit; opacity: 0.85;">GitHub repo of this project</span>
+                            <img src="assets/github.png" alt="GitHub" style="width: clamp(36px, 8vw, 44px); height: clamp(36px, 8vw, 44px); margin-right: clamp(0.6rem, 2vw, 0.8rem); filter: drop-shadow(0 2px 8px #0002); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)';">
+                            <span style="font-size: clamp(0.8rem, 2.5vw, 0.92rem); color: #444; font-family: inherit; opacity: 0.85;">GitHub repo</span>
                         </a>
                     </div>
                 </div>
@@ -208,10 +208,10 @@
                     <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
                     <h3>Kirby Storybook Escape Game</h3>
                     <p>A narrative escape game website where you play as the main character trying to escape a story after upsetting Kirby. A purely front-end creative project combining storytelling and design.</p>
-                    <div style="margin-top: 18px; display: flex; align-items: center; gap: 16px;">
+                    <div style="margin-top: 18px; display: flex; align-items: center; gap: clamp(0.8rem, 3vw, 1rem); flex-wrap: wrap;">
                         <a href="https://github.com/Lou0320/kirby_storybook_escapegame/" target="_blank" style="display: flex; align-items: center; text-decoration: none;">
-                            <img src="assets/github.png" alt="GitHub" style="width: 44px; height: 44px; margin-right: 12px; filter: drop-shadow(0 2px 8px #0002); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)';">
-                            <span style="font-size: 0.92rem; color: #444; font-family: inherit; opacity: 0.85;">GitHub repo of this project</span>
+                            <img src="assets/github.png" alt="GitHub" style="width: clamp(36px, 8vw, 44px); height: clamp(36px, 8vw, 44px); margin-right: clamp(0.6rem, 2vw, 0.8rem); filter: drop-shadow(0 2px 8px #0002); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)';">
+                            <span style="font-size: clamp(0.8rem, 2.5vw, 0.92rem); color: #444; font-family: inherit; opacity: 0.85;">GitHub repo</span>
                         </a>
                     </div>
                 </div>
@@ -250,58 +250,58 @@
                 <div class="lang-group">
                     <div class="lang-group-title">Spoken Languages</div>
                     <div class="lang-tags">
-                        <span class="lang-tag">French 🇫🇷 <em style="font-size:0.85rem;">(native)</em></span>
-                        <span class="lang-tag">English 🇬🇧 <em style="font-size:0.85rem;">(C1)</em></span>
-                        <span class="lang-tag">Spanish 🇪🇸 <em style="font-size:0.85rem;">(A2)</em></span>
-                        <span class="lang-tag">Chinese 🇨🇳 <em style="font-size:0.85rem;">(A2)</em></span>
+                        <span class="lang-tag">French 🇫🇷 <em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(native)</em></span>
+                        <span class="lang-tag">English 🇬🇧 <em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(C1)</em></span>
+                        <span class="lang-tag">Spanish 🇪🇸 <em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(A2)</em></span>
+                        <span class="lang-tag">Chinese 🇨🇳 <em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(A2)</em></span>
                     </div>
                 </div>
             </div>
         </section>
         <section id="achievements">
             <div class="section-title">Achievements & Diplomas</div>
-            <ul style="list-style: none; padding: 0; max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: 1.15rem;">
-                <li style="margin-bottom: 1.5rem;">
+            <ul style="list-style: none; padding: 0; max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: clamp(0.95rem, 3vw, 1.15rem);">
+                <li style="margin-bottom: clamp(1rem, 3vw, 1.5rem);">
                     <strong style="color:var(--text-dark);">Licence Informatique (L3)</strong><br>
                     Université Paris 8 — 2023 to present
                 </li>
-                <li style="margin-bottom: 1.5rem;">
+                <li style="margin-bottom: clamp(1rem, 3vw, 1.5rem);">
                     <strong style="color:var(--text-dark);">Baccalauréat — Mention Très Bien</strong><br>
                     Lycée Evariste Galois, Sartrouville — 2023
                 </li>
-                <li style="margin-bottom: 1.5rem;">
+                <li style="margin-bottom: clamp(1rem, 3vw, 1.5rem);">
                     <strong style="color:var(--text-dark);">🥇 1st Prize API8 2025 — Track 1</strong><br>
                     Best project award at the <a href="https://api8.fr" target="_blank" rel="noopener" style="color:var(--accent-blue);text-decoration:none;">API8</a> graphics programming contest
                 </li>
-                <li style="margin-bottom: 1.5rem;">
+                <li style="margin-bottom: clamp(1rem, 3vw, 1.5rem);">
                     <strong style="color:var(--text-dark);">Cambridge English Certificate — C1 Advanced</strong>
                 </li>
-                <li style="margin-bottom: 1.5rem;">
+                <li style="margin-bottom: clamp(1rem, 3vw, 1.5rem);">
                     <strong style="color:var(--text-dark);">Certification PIX</strong> — 2023
                 </li>
             </ul>
         </section>
         <section id="experience">
             <div class="section-title">Work Experience</div>
-            <ul style="list-style: none; padding: 0; max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: 1.15rem;">
-                <li style="margin-bottom: 2rem;">
+            <ul style="list-style: none; padding: 0; max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: clamp(0.95rem, 3vw, 1.15rem);">
+                <li style="margin-bottom: clamp(1.5rem, 4vw, 2rem);">
                     <strong style="color:var(--text-dark);">R&amp;D Alternance — EDF</strong><br>
-                    <span style="font-size:0.85rem; color:var(--text-light);">Alternance: a French program combining full-time university studies with part-time professional experience</span><br>
-                    <span style="font-size:0.95rem; color:var(--accent-blue);">2025 — present</span><br>
+                    <span style="font-size:clamp(0.75rem, 2.5vw, 0.85rem); color:var(--text-light);">Alternance: a French program combining full-time university studies with part-time professional experience</span><br>
+                    <span style="font-size:clamp(0.85rem, 2.5vw, 0.95rem); color:var(--accent-blue);">2025 — present</span><br>
                     Developing an interactive web platform for a watershed digital twin. Designing user-friendly interfaces and building interactive visualisations with JavaScript, D3.js and mapping libraries. Collaborating with engineers on a hydrological research modelling project.
                 </li>
-                <li style="margin-bottom: 2rem;">
+                <li style="margin-bottom: clamp(1.5rem, 4vw, 2rem);">
                     <strong style="color:var(--text-dark);">Welcome Agent (CDD &amp; Interim) — Tour Eiffel</strong><br>
-                    <span style="font-size:0.95rem; color:var(--accent-blue);">2024 — 2025</span><br>
+                    <span style="font-size:clamp(0.85rem, 2.5vw, 0.95rem); color:var(--accent-blue);">2024 — 2025</span><br>
                     Front-of-house reception at one of the world's most visited landmarks.
                 </li>
-                <li style="margin-bottom: 2rem;">
+                <li style="margin-bottom: clamp(1.5rem, 4vw, 2rem);">
                     <strong style="color:var(--text-dark);">Private Tutor &amp; Homework Help</strong><br>
-                    <span style="font-size:0.95rem; color:var(--accent-blue);">2023 — 2025</span>
+                    <span style="font-size:clamp(0.85rem, 2.5vw, 0.95rem); color:var(--accent-blue);">2023 — 2025</span>
                 </li>
-                <li style="margin-bottom: 2rem;">
+                <li style="margin-bottom: clamp(1.5rem, 4vw, 2rem);">
                     <strong style="color:var(--text-dark);">Observation Internship — EDF R&amp;D</strong><br>
-                    <span style="font-size:0.95rem; color:var(--accent-blue);">2020 — 2021</span><br>
+                    <span style="font-size:clamp(0.85rem, 2.5vw, 0.95rem); color:var(--accent-blue);">2020 — 2021</span><br>
                     Observed the R&amp;D branch, exchanged with PhD students and engineers.
                 </li>
             </ul>
@@ -335,12 +335,12 @@
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit" id="send-btn">Send Message</button>
             </form>
-            <div style="margin-top:2.5rem; display:flex; justify-content:center; gap:2rem; align-items:center;">
+            <div style="margin-top:2.5rem; display:flex; justify-content:center; gap:clamp(1rem, 4vw, 2rem); align-items:center; flex-wrap:wrap;">
                 <a href="mailto:loucm2006@gmail.com" title="loucm2006@gmail.com">
-                    <img src="assets/gmail.png" alt="Gmail" style="width:48px; height:48px; object-fit:contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="assets/gmail.png" alt="Gmail" style="width:clamp(36px, 10vw, 48px); height:clamp(36px, 10vw, 48px); object-fit:contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
                 </a>
                 <a href="https://www.linkedin.com/in/lou-ann-c-aa5327320/" target="_blank" rel="noopener" title="LinkedIn">
-                    <img src="assets/linkedin.png" alt="LinkedIn" style="width:48px; height:48px; object-fit:contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="assets/linkedin.png" alt="LinkedIn" style="width:clamp(36px, 10vw, 48px); height:clamp(36px, 10vw, 48px); object-fit:contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
                 </a>
             </div>
         </section>
