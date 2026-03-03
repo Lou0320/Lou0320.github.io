@@ -51,13 +51,37 @@
             opacity: 1;
             transform: none;
         }
+        @keyframes logo-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        #logo-img {
+            transition: filter 0.3s;
+        }
+        #logo-img.spinning {
+            animation: logo-spin 0.7s cubic-bezier(.77,0,.18,1) forwards;
+        }
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: sparkle-pop 0.7s ease forwards;
+            z-index: 9999;
+        }
+        @keyframes sparkle-pop {
+            0%   { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+            50%  { transform: translate(var(--tx), var(--ty)) scale(1); opacity: 1; }
+            100% { transform: translate(calc(var(--tx)*2), calc(var(--ty)*2)) scale(0); opacity: 0; }
+        }
     </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lou-Ann Coquard-Morel - Portfolio</title>
+    <title>My Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -104,7 +128,7 @@
                 window.addEventListener('scroll', setActiveNav);
                 window.addEventListener('DOMContentLoaded', setActiveNav);
             </script>
-        <div class="logo">Lou-Ann ✩</div>
+        <a href="#whoami" id="logo-link" style="display:inline-flex; align-items:center;"><img id="logo-img" src="assets/logo.png" alt="Lou-Ann logo" style="height:90px; width:auto; display:block;"></a>
         <nav>
             <a href="#whoami">Who am I?</a>
             <a href="#projects">My Projects</a>
@@ -132,7 +156,7 @@
                     <h1>Lou-Ann<br>Coquard-Morel</h1>
                     <p>Computer Science Student, Artist &amp; Explorer</p>
                     <div class="intro-bio">
-                        Computer science student at Université Paris 8, currently in my L3 year, working in parallel as an R&D work-study at EDF. I blend creativity with logic — part coder, part artist, part traveller, always curious.
+                        Computer science student at Université Paris 8, currently in my L3 year, working in parallel as an R&D alternance at EDF (alternance is a French program that combines full-time university studies with part-time professional experience). I blend creativity with logic — part coder, part artist, part traveller, always curious.
                     </div>
                     <a href="#projects" class="intro-cta">See my work ↓</a>
                 </div>
@@ -152,9 +176,9 @@
                     <p>A graphic programming project presented at the API8 contest in 2025 — and won 1st place! A few minutes coded video where Kirby invites you out to party with his friend, built entirely with GL4Dummies.</p>
                 </div>
                 <div class="project-card">
-                    <div class="project-tags"><span class="tag">HTML/CSS</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">JavaScript</span><span class="tag">D3.js</span><span class="tag">Work-Study</span></div>
+                    <div class="project-tags"><span class="tag">HTML/CSS</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">JavaScript</span><span class="tag">D3.js</span><span class="tag">Alternance</span></div>
                     <h3>Watershed Digital Twin <span style="font-size:0.85rem;font-family:inherit;">(Jumeau numérique de bassin versant)</span></h3>
-                    <p>A work-study project built during my L3 year at EDF's R&D Hydrology department. An interactive web platform to present and make accessible a hydrological research study on the Loire Amont watershed — featuring interactive maps, dynamic charts, and tabbed navigation built with D3.js.</p>
+                    <p>An alternance project built during my L3 year at EDF's R&D Hydrology department (alternance: a French program combining full-time studies with part-time professional experience). An interactive web platform to present and make accessible a hydrological research study on the Loire Amont watershed — featuring interactive maps, dynamic charts, and tabbed navigation built with D3.js.</p>
                 </div>
                 <div class="project-card">
                     <div class="project-tags"><span class="tag">C</span><span class="tag">Algorithms</span></div>
@@ -232,7 +256,7 @@
                 </li>
                 <li style="margin-bottom: 1.5rem;">
                     <strong style="color:var(--text-dark);">🥇 1st Prize API8 2025 — Track 1</strong><br>
-                    Best project award at the API8 graphics programming contest
+                    Best project award at the <a href="https://api8.fr" target="_blank" rel="noopener" style="color:var(--accent-blue);text-decoration:none;">API8</a> graphics programming contest
                 </li>
                 <li style="margin-bottom: 1.5rem;">
                     <strong style="color:var(--text-dark);">Cambridge English Certificate — C1 Advanced</strong>
@@ -246,7 +270,8 @@
             <div class="section-title">Work Experience</div>
             <ul style="list-style: none; padding: 0; max-width: 600px; margin: 0 auto; color: var(--text-light); font-size: 1.15rem;">
                 <li style="margin-bottom: 2rem;">
-                    <strong style="color:var(--text-dark);">R&amp;D Work-Study — EDF</strong><br>
+                    <strong style="color:var(--text-dark);">R&amp;D Alternance — EDF</strong><br>
+                    <span style="font-size:0.85rem; color:var(--text-light);">Alternance: a French program combining full-time university studies with part-time professional experience</span><br>
                     <span style="font-size:0.95rem; color:var(--accent-blue);">2025 — present</span><br>
                     Developing an interactive web platform for a watershed digital twin. Designing user-friendly interfaces and building interactive visualisations with JavaScript, D3.js and mapping libraries. Collaborating with engineers on a hydrological research modelling project.
                 </li>
@@ -295,14 +320,67 @@
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit" id="send-btn">Send Message</button>
             </form>
-            <div style="margin-top:2.5rem; text-align:center; color:var(--text-light); font-size:1.1rem;">
-                <div>Email: <a href="mailto:loucm2006@gmail.com" style="color:var(--accent-blue);text-decoration:none;">loucm2006@gmail.com</a></div>
-                <div style="margin-top:0.7rem;">
-                    LinkedIn: <a href="https://www.linkedin.com/in/lou-ann-c-aa5327320/" target="_blank" rel="noopener" style="color:var(--accent-blue);text-decoration:none;">lou-ann-c-aa5327320</a>
-                </div>
+            <div style="margin-top:2.5rem; display:flex; justify-content:center; gap:2rem; align-items:center;">
+                <a href="mailto:loucm2006@gmail.com" title="loucm2006@gmail.com">
+                    <img src="assets/gmail.png" alt="Gmail" style="width:48px; height:48px; object-fit:contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                </a>
+                <a href="https://www.linkedin.com/in/lou-ann-c-aa5327320/" target="_blank" rel="noopener" title="LinkedIn">
+                    <img src="assets/linkedin.png" alt="LinkedIn" style="width:48px; height:48px; object-fit:contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                </a>
             </div>
         </section>
     </main>
     <script src="index.js"></script>
+    <script>
+        (function() {
+            const logoLink = document.getElementById('logo-link');
+            const logoImg  = document.getElementById('logo-img');
+            const colors   = ['#a3c9f9','#e3f0ff','#fff','#ffd6f0','#c2f0ff','#ffe6a0'];
+            const shapes   = ['✦','✧','★','✩','•','⋆'];
+
+            function spawnSparkles() {
+                const rect = logoImg.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top  + rect.height / 2;
+                for (let i = 0; i < 14; i++) {
+                    const el = document.createElement('span');
+                    el.className = 'sparkle';
+                    const angle = Math.random() * 2 * Math.PI;
+                    const dist  = 30 + Math.random() * 55;
+                    const tx    = Math.cos(angle) * dist + 'px';
+                    const ty    = Math.sin(angle) * dist + 'px';
+                    const size  = 8 + Math.random() * 12;
+                    el.style.setProperty('--tx', tx);
+                    el.style.setProperty('--ty', ty);
+                    el.style.left = cx + 'px';
+                    el.style.top  = cy + 'px';
+                    el.style.width  = size + 'px';
+                    el.style.height = size + 'px';
+                    el.style.color  = colors[Math.floor(Math.random() * colors.length)];
+                    el.style.fontSize = size + 'px';
+                    el.style.lineHeight = '1';
+                    el.style.borderRadius = '0';
+                    el.style.background = 'transparent';
+                    el.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                    el.style.animationDelay = (Math.random() * 0.2) + 's';
+                    document.body.appendChild(el);
+                    el.addEventListener('animationend', () => el.remove());
+                }
+            }
+
+            function triggerAnimation() {
+                logoImg.classList.remove('spinning');
+                void logoImg.offsetWidth;
+                logoImg.classList.add('spinning');
+                spawnSparkles();
+            }
+
+            logoLink.addEventListener('mouseenter', triggerAnimation);
+            logoLink.addEventListener('click', triggerAnimation);
+            logoImg.addEventListener('animationend', function() {
+                logoImg.classList.remove('spinning');
+            });
+        })();
+    </script>
 </body>
 </html>
