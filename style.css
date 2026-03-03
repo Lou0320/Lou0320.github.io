@@ -217,6 +217,57 @@ section.visible {
     color: var(--text-dark);
     margin-top: 0;
 }
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+.tag {
+    background: var(--pale-blue);
+    color: var(--accent-blue);
+    border-radius: 2rem;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+/* ─── Languages ──────────────────────────────────────────────────────────── */
+.languages-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 700px;
+}
+.lang-group-title {
+    font-family: var(--font-sub);
+    font-size: 1rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+.lang-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+.lang-tag {
+    background: var(--white);
+    color: var(--text-dark);
+    border: 2px solid var(--accent-blue);
+    border-radius: 2rem;
+    padding: 0.4rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-sub);
+    box-shadow: 0 2px 8px rgba(163,201,249,0.15);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.lang-tag:hover {
+    background: var(--accent-blue);
+    color: #fff;
+    transform: translateY(-3px);
+}
 .project-card {
     background: var(--white);
     border-radius: 1.2rem;
