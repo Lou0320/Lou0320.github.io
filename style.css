@@ -156,7 +156,7 @@ section.visible {
     50% { transform: translateY(-7px); }
 }
 .intro-text {
-    max-width: 420px;
+    max-width: 500px;
 }
 .intro-hello {
     font-family: var(--font-sub);
@@ -201,11 +201,53 @@ section.visible {
     background: #7bb6f7;
     transform: translateY(-3px);
 }
+.intro-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+.cv-download {
+    background: transparent;
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+    box-shadow: none;
+}
+.cv-download:hover {
+    background: var(--accent-blue);
+    color: #fff;
+}
 @media (max-width: 700px) {
-    .intro-layout { gap: 2.5rem; }
-    .intro-text h1 { font-size: 2rem; }
+    .intro-layout { gap: 2.5rem; padding: 0 1rem; }
+    .intro-text h1 { font-size: 1.75rem; }
+    .intro-text p { font-size: 0.95rem; }
+    .intro-bio { font-size: 0.9rem; }
+    .intro-hello { font-size: 1rem; }
     .photo-polaroid { width: 180px; }
     .photo-me { height: 220px; }
+    .intro-text { max-width: 100%; padding: 0 0.5rem; }
+    .intro-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 1rem;
+    }
+    .intro-cta {
+        text-align: center;
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 0.65rem 1.5rem;
+    }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+    .intro-layout { padding: 0 2rem; }
+    .intro-text { max-width: 450px; }
+    .intro-text h1 { font-size: 2.2rem; }
+    .intro-text p { font-size: 0.95rem; }
+    .intro-bio { font-size: 0.95rem; }
+    .intro-cta {
+        padding: 0.65rem 1.5rem;
+        font-size: 0.9rem;
+    }
 }
 .projects-list {
     display: grid;
