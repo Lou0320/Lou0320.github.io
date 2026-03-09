@@ -74,6 +74,38 @@
             50%  { transform: translate(var(--tx), var(--ty)) scale(1); opacity: 1; }
             100% { transform: translate(calc(var(--tx)*2), calc(var(--ty)*2)) scale(0); opacity: 0; }
         }
+        /* Passion galleries */
+        .passions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .passion-item {
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        .passion-gallery {
+            margin-top: 0.75rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.5rem;
+            align-items: center;
+            justify-items: center;
+        }
+        .passion-gallery img {
+            height: 140px; /* uniform displayed height; original files untouched */
+            width: auto;      /* preserve aspect ratio */
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+        }
+        .passion-gallery img.small-gif {
+            height: 110px; /* slightly smaller for GIF */
+        }
     </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -315,13 +347,28 @@
         <section id="passions">
             <div class="section-title">My Passions</div>
             <div class="passions">
-                <div class="passion-item">
-                    <strong>🎨 Art</strong><br>
-                    Creativity runs through everything I do — from painting and illustration to the way I design interfaces.
-                </div>
+                    <div class="passion-item">
+                        <strong>🎨 Digital Art</strong><br>
+                        These are digital works created as personal projects, commissions, or assets for university projects. I make them using my phone, a tablet and my computer — I also create pixel art for games and similar projects.
+                        <div class="passion-gallery">
+                            <img src="assets/digital_art_1.png" alt="Digital art 1">
+                            <img src="assets/digital_art_2.png" alt="Digital art 2">
+                            <img src="assets/digital_art_3.png" alt="Digital art 3">
+                            <img src="assets/digital_art_4.gif" alt="Digital art 4" class="small-gif">
+                        </div>
+                    </div>
+                    <div class="passion-item">
+                        <strong>🖌️ Art (painting, drawing, crafts)</strong><br>
+                        I'm a very creative maker — these are some of my personal projects in painting, drawing and crafts. I also enjoy building necklaces and 3D beaded flowers, like lilies.
+                        <div class="passion-gallery">
+                            <img src="assets/art_1.png" alt="Art 1">
+                            <img src="assets/art_2.png" alt="Art 2">
+                            <img src="assets/art_3.png" alt="Art 3">
+                        </div>
+                    </div>
                 <div class="passion-item">
                     <strong>💻 Code</strong><br>
-                    Building things from scratch, solving puzzles, and turning ideas into real interactive experiences.
+                    Coding is one of my passions. I took part in <a href="https://www.nuitducode.net/ndc2023#POO" target="_blank" rel="noopener">La Nuit Du Code</a> with my high-school group "Estraboise Evariste Galois" in Terminale — we won 1st place at our school. I also participated in API8 and loved it: I was fully invested and my efforts paid off. I enjoy building small websites for fun whenever I spot an interesting idea online.
                 </div>
                 <div class="passion-item">
                     <strong>✈️ Travel</strong><br>
