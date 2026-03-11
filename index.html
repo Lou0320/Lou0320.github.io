@@ -106,6 +106,37 @@
         .passion-gallery img.small-gif {
             height: 110px; /* slightly smaller for GIF */
         }
+        /* Responsive YouTube embed for achievements */
+        .youtube-embed {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 1rem auto 0;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+        }
+        .youtube-embed.small {
+            max-width: 480px;
+            margin-top: 0.5rem;
+        }
+        .youtube-embed iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: 0;
+        }
+        /* Repo / social icons */
+        .repo-icon {
+            width: clamp(28px, 6vw, 36px);
+            height: clamp(28px, 6vw, 36px);
+            margin-right: clamp(0.5rem, 1.5vw, 0.7rem);
+            filter: drop-shadow(0 2px 8px #0002);
+            transition: transform 0.18s ease, opacity 0.18s ease;
+            object-fit: contain;
+        }
+        .repo-icon:hover { transform: scale(1.08); }
     </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -206,7 +237,7 @@
                     <p>A Gartic Phone-inspired game with a real-time multiplayer server, built as a university final project. Players draw and guess in live rounds powered by Flask and WebSockets.</p>
                     <div style="margin-top: 18px; display: flex; align-items: center; gap: clamp(0.8rem, 3vw, 1rem); flex-wrap: wrap;">
                         <a href="https://github.com/Lou0320/loulou_phone/" target="_blank" rel="noopener" style="display: flex; align-items: center; text-decoration: none;">
-                            <img src="assets/github.png" alt="GitHub" style="width: clamp(36px, 8vw, 44px); height: clamp(36px, 8vw, 44px); margin-right: clamp(0.6rem, 2vw, 0.8rem); filter: drop-shadow(0 2px 8px #0002); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)';">
+                            <img src="assets/github.png" alt="GitHub" class="repo-icon">
                             <span style="font-size: clamp(0.8rem, 2.5vw, 0.92rem); color: #444; font-family: inherit; opacity: 0.85;">GitHub repo</span>
                         </a>
                     </div>
@@ -215,6 +246,16 @@
                     <div class="project-tags"><span class="tag">GL4Dummies</span><span class="tag">SDL</span><span class="tag">🥇 API8 2025</span></div>
                     <h3>Kirby's Adventure</h3>
                     <p>A graphic programming project presented at the API8 contest in 2025 — and won 1st place! A few minutes coded video where Kirby invites you out to party with his friend, built entirely with GL4Dummies.</p>
+                    <div style="margin-top: 18px; display: flex; align-items: center; gap: clamp(0.8rem, 3vw, 1rem); flex-wrap: wrap;">
+                        <a href="https://github.com/Lou0320/demo_kirby" target="_blank" rel="noopener" style="display: flex; align-items: center; text-decoration: none;">
+                            <img src="assets/github.png" alt="GitHub" class="repo-icon">
+                            <span style="font-size: clamp(0.8rem, 2.5vw, 0.92rem); color: #444; font-family: inherit; opacity: 0.85;">GitHub repo</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=ZA84KkezSdM" target="_blank" rel="noopener" style="display: flex; align-items: center; text-decoration: none;">
+                            <img src="assets/youtube.png" alt="YouTube" class="repo-icon">
+                            <span style="font-size: clamp(0.8rem, 2.5vw, 0.92rem); color: #444; font-family: inherit; opacity: 0.85;">Watch video</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="project-card">
                     <div class="project-tags"><span class="tag">HTML/CSS</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">JavaScript</span><span class="tag">D3.js</span><span class="tag">Alternance</span></div>
@@ -237,7 +278,7 @@
                     <p>A playable implementation of the Nonogram logic puzzle, developed in OCaml as a university project. Focuses on constraint satisfaction and functional programming.</p>
                     <div style="margin-top: 18px; display: flex; align-items: center; gap: clamp(0.8rem, 3vw, 1rem); flex-wrap: wrap;">
                         <a href="https://github.com/Lou0320/nonogram/" target="_blank" style="display: flex; align-items: center; text-decoration: none;">
-                            <img src="assets/github.png" alt="GitHub" style="width: clamp(36px, 8vw, 44px); height: clamp(36px, 8vw, 44px); margin-right: clamp(0.6rem, 2vw, 0.8rem); filter: drop-shadow(0 2px 8px #0002); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)';">
+                            <img src="assets/github.png" alt="GitHub" class="repo-icon">
                             <span style="font-size: clamp(0.8rem, 2.5vw, 0.92rem); color: #444; font-family: inherit; opacity: 0.85;">GitHub repo</span>
                         </a>
                     </div>
@@ -248,7 +289,7 @@
                     <p>A narrative escape game website where you play as the main character trying to escape a story after upsetting Kirby. A purely front-end creative project combining storytelling and design.</p>
                     <div style="margin-top: 18px; display: flex; align-items: center; gap: clamp(0.8rem, 3vw, 1rem); flex-wrap: wrap;">
                         <a href="https://github.com/Lou0320/kirby_storybook_escapegame/" target="_blank" style="display: flex; align-items: center; text-decoration: none;">
-                            <img src="assets/github.png" alt="GitHub" style="width: clamp(36px, 8vw, 44px); height: clamp(36px, 8vw, 44px); margin-right: clamp(0.6rem, 2vw, 0.8rem); filter: drop-shadow(0 2px 8px #0002); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)';">
+                            <img src="assets/github.png" alt="GitHub" class="repo-icon">
                             <span style="font-size: clamp(0.8rem, 2.5vw, 0.92rem); color: #444; font-family: inherit; opacity: 0.85;">GitHub repo</span>
                         </a>
                     </div>
@@ -288,10 +329,10 @@
                 <div class="lang-group">
                     <div class="lang-group-title">Spoken Languages</div>
                     <div class="lang-tags">
-                        <span class="lang-tag">French 🇫🇷 <em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(native)</em></span>
-                        <span class="lang-tag">English 🇬🇧 <em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(C1)</em></span>
-                        <span class="lang-tag">Spanish 🇪🇸 <em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(A2)</em></span>
-                        <span class="lang-tag">Chinese 🇨🇳 <em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(A2)</em></span>
+                        <span class="lang-tag">French<em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(native)</em></span>
+                        <span class="lang-tag">English<em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(C1)</em></span>
+                        <span class="lang-tag">Spanish<em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(A2)</em></span>
+                        <span class="lang-tag">Chinese<em style="font-size:clamp(0.65rem, 2vw, 0.85rem);">(A2)</em></span>
                     </div>
                 </div>
             </div>
@@ -308,8 +349,11 @@
                     Lycée Evariste Galois, Sartrouville — 2023
                 </li>
                 <li style="margin-bottom: clamp(1rem, 3vw, 1.5rem);">
-                    <strong style="color:var(--text-dark);">🥇 1st Prize API8 2025 — Track 1</strong><br>
+                    <strong style="color:var(--text-dark);">1st Prize API8 2025 — Track 1</strong><br>
                     Best project award at the <a href="https://api8.fr" target="_blank" rel="noopener" style="color:var(--accent-blue);text-decoration:none;">API8</a> graphics programming contest
+                    <div class="youtube-embed small" aria-label="API8 Kirby's Adventure video">
+                        <iframe src="https://www.youtube.com/embed/ZA84KkezSdM" title="Kirby's Adventure — API8 2025 (Winner)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
                 </li>
                 <li style="margin-bottom: clamp(1rem, 3vw, 1.5rem);">
                     <strong style="color:var(--text-dark);">Cambridge English Certificate — C1 Advanced</strong>
@@ -318,6 +362,7 @@
                     <strong style="color:var(--text-dark);">Certification PIX</strong> — 2023
                 </li>
             </ul>
+            <!-- moved embed into the API8 list item -->
         </section>
         <section id="experience">
             <div class="section-title">Work Experience</div>
@@ -348,7 +393,7 @@
             <div class="section-title">My Passions</div>
             <div class="passions">
                     <div class="passion-item">
-                        <strong>🎨 Digital Art</strong><br>
+                        <strong>Digital Art</strong><br>
                         These are digital works created as personal projects, commissions, or assets for university projects. I make them using my phone, a tablet and my computer — I also create pixel art for games and similar projects.
                         <div class="passion-gallery">
                             <img src="assets/digital_art_1.png" alt="Digital art 1">
@@ -358,7 +403,7 @@
                         </div>
                     </div>
                     <div class="passion-item">
-                        <strong>🖌️ Art (painting, drawing, crafts)</strong><br>
+                        <strong>Art (painting, drawing, crafts)</strong><br>
                         I'm a very creative maker — these are some of my personal projects in painting, drawing and crafts. I also enjoy building necklaces and 3D beaded flowers, like lilies.
                         <div class="passion-gallery">
                             <img src="assets/art_1.png" alt="Art 1">
@@ -367,15 +412,15 @@
                         </div>
                     </div>
                 <div class="passion-item">
-                    <strong>💻 Code</strong><br>
+                    <strong>Code</strong><br>
                     Coding is one of my passions. I took part in <a href="https://www.nuitducode.net/ndc2023#POO" target="_blank" rel="noopener">La Nuit Du Code</a> with my high-school group "Estraboise Evariste Galois" in Terminale — we won 1st place at our school. I also participated in API8 and loved it: I was fully invested and my efforts paid off. I enjoy building small websites for fun whenever I spot an interesting idea online.
                 </div>
                 <div class="passion-item">
-                    <strong>✈️ Travel</strong><br>
+                    <strong>Travel</strong><br>
                     Exploring new cultures, landscapes, and perspectives keeps me curious and inspired.
                 </div>
                 <div class="passion-item">
-                    <strong>🏃 Sport</strong><br>
+                    <strong>Sport</strong><br>
                     Staying active and pushing limits — sport keeps me balanced and energised.
                 </div>
             </div>
@@ -396,7 +441,7 @@
                     <img src="assets/linkedin.png" alt="LinkedIn" style="width:clamp(36px, 10vw, 48px); height:clamp(36px, 10vw, 48px); object-fit:contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
                 </a>
                 <a href="https://github.com/Lou0320/" target="_blank" rel="noopener" title="GitHub">
-                    <img src="assets/github.png" alt="GitHub" style="width:clamp(36px, 10vw, 48px); height:clamp(36px, 10vw, 48px); object-fit:contain; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="assets/github.png" alt="GitHub" class="repo-icon">
                 </a>
             </div>
         </section>
