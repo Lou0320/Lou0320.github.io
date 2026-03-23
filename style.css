@@ -34,13 +34,15 @@ body {
 header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    background: rgba(255,255,255,0.85);
-    box-shadow: var(--shadow);
-    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 20px rgba(163, 201, 249, 0.25);
+    z-index: 9999 !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 3vw;
+    isolation: isolate;
+    will-change: z-index;
 }
 .logo {
     font-family: 'Playfair Display', serif;
@@ -372,37 +374,7 @@ section.visible {
     top: 0; left: 0; width: 100vw; height: 100vh;
     overflow: hidden;
 }
-.bg-shape {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(32px);
-    opacity: 0.18;
-}
-.bg-shape1 {
-    width: 500px; height: 500px;
-    background: #a3c9f9;
-    top: -160px; left: -160px;
-}
-.bg-shape2 {
-    width: 380px; height: 380px;
-    background: #FFC2F3;
-    bottom: -120px; right: -100px;
-}
-.bg-shape3 {
-    width: 320px; height: 320px;
-    background: #d4b8f0;
-    top: 35%; left: 55%;
-}
-.bg-shape4 {
-    width: 260px; height: 260px;
-    background: #FFC2F3;
-    top: 60%; left: -80px;
-}
-.bg-shape5 {
-    width: 280px; height: 280px;
-    background: #a3c9f9;
-    top: 15%; right: -60px;
-}
+/* Background blur animations are defined in index.html inline styles */
 /* RESPONSIVE DESIGN - TABLETS & MOBILE */
 
 /* Extra Small Devices (Mobile < 480px) */

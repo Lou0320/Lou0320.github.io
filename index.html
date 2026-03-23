@@ -11,17 +11,112 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(32px);
-            opacity: 0.18;
+            opacity: 0.28;
+        }
+        @keyframes float1 {
+            0% { transform: translate(0, 0); opacity: 0.28; }
+            12.5% { transform: translate(60px, -60px); opacity: 0.20; }
+            25% { transform: translate(100px, 0px); opacity: 0.32; }
+            37.5% { transform: translate(60px, 60px); opacity: 0.24; }
+            50% { transform: translate(0, 100px); opacity: 0.30; }
+            62.5% { transform: translate(-60px, 60px); opacity: 0.23; }
+            75% { transform: translate(-100px, 0px); opacity: 0.31; }
+            87.5% { transform: translate(-60px, -60px); opacity: 0.25; }
+            100% { transform: translate(0, 0); opacity: 0.28; }
+        }
+        @keyframes float2 {
+            0% { transform: translate(0, 0); opacity: 0.28; }
+            12.5% { transform: translate(-70px, 50px); opacity: 0.24; }
+            25% { transform: translate(-50px, 90px); opacity: 0.33; }
+            37.5% { transform: translate(40px, 75px); opacity: 0.23; }
+            50% { transform: translate(90px, 30px); opacity: 0.31; }
+            62.5% { transform: translate(75px, -50px); opacity: 0.22; }
+            75% { transform: translate(30px, -90px); opacity: 0.32; }
+            87.5% { transform: translate(-50px, -65px); opacity: 0.24; }
+            100% { transform: translate(0, 0); opacity: 0.28; }
+        }
+        @keyframes float3 {
+            0% { transform: translate(0, 0); opacity: 0.28; }
+            12.5% { transform: translate(50px, 50px); opacity: 0.23; }
+            25% { transform: translate(0, 95px); opacity: 0.31; }
+            37.5% { transform: translate(-65px, 50px); opacity: 0.22; }
+            50% { transform: translate(-90px, -30px); opacity: 0.32; }
+            62.5% { transform: translate(-40px, -80px); opacity: 0.24; }
+            75% { transform: translate(55px, -75px); opacity: 0.30; }
+            87.5% { transform: translate(80px, -20px); opacity: 0.23; }
+            100% { transform: translate(0, 0); opacity: 0.28; }
         }
         .bg-shape1 {
-            width: 420px; height: 420px;
+            width: 280px; height: 280px;
             background: var(--accent-blue);
-            top: -120px; left: -120px;
+            top: -80px; left: -80px;
+            animation: float1 5s ease-in-out infinite;
         }
         .bg-shape2 {
-            width: 300px; height: 300px;
+            width: 220px; height: 220px;
             background: var(--pale-blue);
-            bottom: -100px; right: -80px;
+            bottom: -60px; right: -60px;
+            animation: float2 6s ease-in-out infinite;
+        }
+        .bg-shape3 {
+            width: 250px; height: 250px;
+            background: #d4b8f0;
+            top: 35%; left: 55%;
+            animation: float3 6.5s ease-in-out infinite;
+        }
+        .bg-shape4 {
+            width: 200px; height: 200px;
+            background: #FFC2F3;
+            top: 60%; left: -50px;
+            animation: float1 5.5s ease-in-out infinite reverse;
+        }
+        .bg-shape5 {
+            width: 230px; height: 230px;
+            background: #c2f0ff;
+            top: 50%; left: -30px;
+            animation: float2 6s ease-in-out infinite;
+        }
+        .bg-shape6 {
+            width: 190px; height: 190px;
+            background: #ffe6a0;
+            top: 20%; left: 30%;
+            animation: float3 5.2s ease-in-out infinite;
+        }
+        .bg-shape7 {
+            width: 210px; height: 210px;
+            background: #ffd6f0;
+            bottom: 10%; right: 20%;
+            animation: float1 5.8s ease-in-out infinite reverse;
+        }
+        .bg-shape8 {
+            width: 190px; height: 190px;
+            background: #a3c9f9;
+            top: 15%; right: -40px;
+            animation: float2 6.2s ease-in-out infinite reverse;
+        }
+        .bg-shape9 {
+            width: 180px; height: 180px;
+            background: #c2f0ff;
+            top: 25%; left: 10%;
+            animation: float3 6s ease-in-out infinite;
+        }
+        .bg-shape10 {
+            width: 150px; height: 150px;
+            background: #ffd6f0;
+            bottom: 30%; left: 20%;
+            animation: float1 5.5s ease-in-out infinite;
+        }
+        .bg-shape11 {
+            width: 160px; height: 160px;
+            background: #ffe6a0;
+            top: 70%; right: 15%;
+            animation: float2 6.5s ease-in-out infinite reverse;
+        }
+        .bg-shape12 {
+            width: 140px; height: 140px;
+            background: #d4b8f0;
+            bottom: 40%; right: 40%;
+            animation: float3 5.2s ease-in-out infinite;
         }
         nav a {
             /* ...existing code... */
@@ -46,6 +141,8 @@
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+            position: relative;
+            z-index: 1 !important;
         }
         section.visible {
             opacity: 1;
@@ -67,7 +164,7 @@
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0);
             animation: sparkle-pop 0.7s ease forwards;
-            z-index: 9999;
+            z-index: 1 !important;
         }
         @keyframes sparkle-pop {
             0%   { transform: translate(-50%, -50%) scale(0); opacity: 1; }
@@ -83,20 +180,54 @@
             margin: 0 auto;
         }
         .passion-item {
-            background: rgba(255,255,255,0.03);
+            /* transparent black panel with layered shadow */
+            background-color: rgba(0,0,0,0.56);
             padding: 1rem;
-            border-radius: 12px;
+            border-radius: 1rem;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+                rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+                rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+                rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+                rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            position: relative;
+            overflow: visible;
+            isolation: isolate;
+            transition: transform 0.28s cubic-bezier(.22,.9,.35,1), opacity 0.28s ease;
+            transform-origin: 50% 20%;
+            will-change: transform, opacity;
         }
+        /* apply smooth scaling behavior to common row elements */
+        .project-card, .passion-item, .lang-tag, .tag, .photo-polaroid, .intro-layout > *,
+        section > .section-title, section h1, section h2, section h3, section p, .project-card h3, .project-card p {
+            transition: transform 0.28s cubic-bezier(.22,.9,.35,1), opacity 0.28s ease;
+            transform-origin: 50% 20%;
+            will-change: transform, opacity;
+        }
+        .passion-item::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 1rem;
+            background: linear-gradient(163deg, #4ea1ff 0%, #7b4dff 100%);
+            filter: blur(10px);
+            opacity: 0.14;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 0;
+        }
+        .passion-item:hover::after { opacity: 0.28; transform: scale(1.02); }
+        .passion-item > * { position: relative; z-index: 1; }
         .passion-gallery {
             margin-top: 0.75rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            margin-top: 0.75rem;
+            display: block;
+            width: 100%;
             gap: 0.5rem;
             align-items: center;
             justify-items: center;
         }
         .passion-gallery img {
-            height: 140px; /* uniform displayed height; original files untouched */
+            height: clamp(110px, 16vh, 160px); /* responsive displayed height; original files untouched */
             width: auto;      /* preserve aspect ratio */
             max-width: 100%;
             object-fit: contain;
@@ -104,7 +235,7 @@
             display: block;
         }
         .passion-gallery img.small-gif {
-            height: 110px; /* slightly smaller for GIF */
+            height: clamp(90px, 12vh, 130px); /* slightly smaller for GIF */
         }
         /* Responsive YouTube embed for achievements */
         .youtube-embed {
@@ -137,6 +268,116 @@
             object-fit: contain;
         }
         .repo-icon:hover { transform: scale(1.08); }
+        /* Image zoom button + modal for art pictures */
+        /* no visible zoom buttons — panels should contain only the image and arrows */
+
+        /* Carousel / slider panel */
+        .gallery-slider {
+            position: relative;
+            width: 100%;
+            max-width: none;
+            background-color: rgba(0,0,0,0.55);
+            border-radius: 1rem;
+            padding: 0; /* remove inner padding so slider touches edges when we offset */
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+                rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+                rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+                rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+                rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            isolation: isolate;
+        }
+        /* make the slider span the full width of the .passion-item (negate the item padding)
+           so there's no visible gap between the panel edge and the slide content */
+        .passion-item .gallery-slider {
+            margin-left: -1rem;
+            margin-right: -1rem;
+            width: calc(100% + 2rem);
+            border-radius: 1rem;
+        }
+        .gallery-slider::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 1rem;
+            background: linear-gradient(163deg, #4ea1ff 0%, #7b4dff 100%);
+            filter: blur(10px);
+            opacity: 0.12;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 0;
+        }
+        .gallery-slider:hover::after { opacity: 0.26; transform: scale(1.02); }
+        .gallery-slider > * { position: relative; z-index: 1; }
+        .gallery-slider .slides {
+            display: flex;
+            transition: transform 1.6s cubic-bezier(.22,.9,.35,1);
+            width: 100%;
+            opacity: 1;
+        }
+        .gallery-slider .slides .slide-img {
+            flex: 0 0 100%;
+            width: 100%;
+            max-height: 340px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #0b0b0b33;
+            display: block;
+        }
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.45);
+            color: #fff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+        }
+        .slider-arrow.prev { left: 12px; }
+        .slider-arrow.next { right: 12px; }
+        /* captions removed — panels show only the image */
+        @media (max-width: 720px) {
+            .gallery-slider { max-width: none; }
+            .passion-gallery .img-zoom-wrap img { height: 180px; }
+        }
+        #img-zoom-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        #img-zoom-modal.open { display: flex; }
+        #img-zoom-modal img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+        #img-zoom-modal .close-btn {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            backdrop-filter: blur(4px);
+        }
     </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,6 +397,13 @@
         <div class="bg-shape bg-shape3"></div>
         <div class="bg-shape bg-shape4"></div>
         <div class="bg-shape bg-shape5"></div>
+        <div class="bg-shape bg-shape6"></div>
+        <div class="bg-shape bg-shape7"></div>
+        <div class="bg-shape bg-shape8"></div>
+        <div class="bg-shape bg-shape9"></div>
+        <div class="bg-shape bg-shape10"></div>
+        <div class="bg-shape bg-shape11"></div>
+        <div class="bg-shape bg-shape12"></div>
     </div>
     <header>
             <script>
@@ -446,6 +694,12 @@
             </div>
         </section>
     </main>
+    <!-- Image zoom modal (used by the zoom buttons injected on gallery images) -->
+    <div id="img-zoom-modal" role="dialog" aria-hidden="true">
+        <button class="close-btn" aria-label="Close image">✕</button>
+        <img src="" alt="">
+    </div>
+
     <script src="index.js"></script>
     <script>
         (function() {
@@ -496,6 +750,105 @@
             logoImg.addEventListener('animationend', function() {
                 logoImg.classList.remove('spinning');
             });
+        })();
+    </script>
+    <script>
+        // Row-based scroll scaling: groups items by visual row and scales the whole row
+        (function(){
+            // selectors to include in row-scaling (container items)
+            const groupSelectors = [
+                '.projects-list > .project-card',
+                '.passions > .passion-item',
+                '.lang-tags > .lang-tag',
+                '.project-tags > .tag',
+                '.intro-layout > *'
+            ];
+
+            // standalone text elements to scale when they are NOT inside a grouped container
+            const standaloneSelectors = [
+                'section > .section-title',
+                'section h1',
+                'section h2',
+                'section h3',
+                'section p'
+            ];
+
+            function collectItems() {
+                const groups = Array.from(document.querySelectorAll(groupSelectors.join(','))).filter(el => el.offsetParent !== null);
+                const standalone = Array.from(document.querySelectorAll(standaloneSelectors.join(','))).filter(el => el.offsetParent !== null)
+                    .filter(el => {
+                        // exclude if element is inside any grouped container to avoid double-scaling
+                        return !groupSelectors.some(sel => el.closest(sel.replace(/> \.[^,]+$/, '')));
+                    });
+
+                return groups.concat(standalone);
+            }
+
+            const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+            let ticking = false;
+            let items = collectItems();
+
+            // group items into rows based on their absolute top (document space)
+            function groupRows(list) {
+                const rows = [];
+                const sorted = list.slice().sort((a,b)=> (a.getBoundingClientRect().top + window.scrollY) - (b.getBoundingClientRect().top + window.scrollY));
+                let currentRow = null;
+                const THRESH = 12; // px tolerance to consider same row
+
+                sorted.forEach(el => {
+                    const top = Math.round(el.getBoundingClientRect().top + window.scrollY);
+                    if (!currentRow || Math.abs(top - currentRow.top) > THRESH) {
+                        currentRow = { top: top, items: [el], bottom: Math.round((el.getBoundingClientRect().top + window.scrollY) + el.getBoundingClientRect().height) };
+                        rows.push(currentRow);
+                    } else {
+                        currentRow.items.push(el);
+                        const bottom = Math.round((el.getBoundingClientRect().top + window.scrollY) + el.getBoundingClientRect().height);
+                        if (bottom > currentRow.bottom) currentRow.bottom = bottom;
+                    }
+                });
+
+                return rows;
+            }
+
+            function update() {
+                ticking = false;
+                if (!items.length) return;
+                const rows = groupRows(items);
+                const viewportCenter = window.innerHeight / 2;
+                const maxDist = window.innerHeight * 0.6;
+
+                rows.forEach(row => {
+                    const rowCenterAbs = (row.top + row.bottom) / 2; // absolute document coord
+                    const rowCenterViewport = rowCenterAbs - window.scrollY; // viewport coord
+                    const dist = Math.abs(rowCenterViewport - viewportCenter);
+                    const t = clamp(1 - dist / maxDist, 0, 1);
+
+                    const minScale = 0.97;
+                    const maxScale = 1.03;
+                    const scale = minScale + (maxScale - minScale) * t;
+
+                    row.items.forEach(el => {
+                        el.style.transform = `scale(${scale})`;
+                        el.style.opacity = (0.92 + 0.08 * t).toString();
+                        el.style.zIndex = Math.round(100 + t * 200);
+                    });
+                });
+            }
+
+            function onEvent() {
+                // refresh items occasionally (e.g., responsive changes)
+                items = collectItems();
+                if (!ticking) { ticking = true; requestAnimationFrame(update); }
+            }
+
+            ['scroll','resize','orientationchange','DOMContentLoaded'].forEach(e => window.addEventListener(e, onEvent, { passive: true }));
+
+            // observe DOM changes that might affect layout (e.g., images loaded)
+            const ro = new MutationObserver(() => { items = collectItems(); if (!ticking) { ticking = true; requestAnimationFrame(update); } });
+            ro.observe(document.body, { childList: true, subtree: true, attributes: true });
+
+            // initial run
+            onEvent();
         })();
     </script>
 </body>
